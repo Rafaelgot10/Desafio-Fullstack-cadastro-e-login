@@ -3,8 +3,7 @@ import { ZodTypeAny } from "zod";
 import { TUserRequest } from "../Interfaces/users.interfaces";
 
 const verifyBodyRequest =
-  (schema: ZodTypeAny) =>
-  (req: Request, _res: Response, next: NextFunction) => {
+  (schema: ZodTypeAny) => (req: Request, res: Response, next: NextFunction) => {
     const validatedData: TUserRequest = schema.parse(req.body);
 
     req.body = validatedData;

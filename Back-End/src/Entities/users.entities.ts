@@ -39,8 +39,8 @@ class User {
   @DeleteDateColumn({ nullable: true })
   deletedAt?: string | Date | null | undefined;
 
-  @OneToMany(() => Contact, (contact) => contact.user)
-  contact: Contact[];
+  @OneToMany(() => Contact, (contact) => contact.user, { nullable: true })
+  contacts: Contact[] | null | undefined;
 
   @BeforeInsert()
   @BeforeUpdate()

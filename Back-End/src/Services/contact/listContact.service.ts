@@ -8,7 +8,11 @@ const listAllContactsService = async (): Promise<TContactsResponse | null> => {
   const contactRepository: Repository<Contact> =
     AppDataSource.getRepository(Contact);
 
-  const contacts: Contact[] | null = await contactRepository.find();
+  const contacts: Contact[] | null = await contactRepository.find({
+    relations: {
+      user: true,
+    },
+  });
 
   const returnContacts: TContactsResponse =
     responseContactsSchema.parse(contacts);

@@ -8,17 +8,19 @@ import {
 } from "../Controllers/users.controllers";
 import verifyBodyRequest from "../Middlewares/verifyBodyRequest.middleware";
 import { requestUserSchema, updateUserSchema } from "../Schemas/users.schemas";
-import verifyEmailUser from "../Middlewares/veryfiEmailExists";
 import veryfiToken from "../Middlewares/veryfiToken";
 import verifyOwner from "../Middlewares/verifyOwner.middleware";
 import verifyIdUserParamn from "../Middlewares/verifyIdUserParamn.middleware";
+import verifyEmailUser from "../Middlewares/veryfiEmailUser";
+import verifyPhoneNumberUser from "../Middlewares/veryfiPhoneNumberUser";
 
 const usersRoutes: Router = Router();
 
 usersRoutes.post(
   "",
-  verifyBodyRequest(requestUserSchema),
   verifyEmailUser,
+  verifyPhoneNumberUser,
+  // verifyBodyRequest(requestUserSchema),
   createUserController
 );
 
@@ -34,10 +36,12 @@ usersRoutes.get(
 
 usersRoutes.patch(
   "/:id",
-  verifyIdUserParamn,
   veryfiToken,
-  verifyBodyRequest(updateUserSchema),
+  verifyIdUserParamn,
+  verifyEmailUser,
   verifyOwner,
+  verifyPhoneNumberUser,
+  verifyBodyRequest(updateUserSchema),
   updateUserController
 );
 

@@ -5,7 +5,7 @@ import {
   TContactRequest,
   TContactResponse,
 } from "../../Interfaces/contact.interfaces";
-import { responseContactSchema } from "../../Schemas/contact.schemas";
+import { contactSchema } from "../../Schemas/contact.schemas";
 
 const updateContactService = async (
   contactId: number,
@@ -25,8 +25,7 @@ const updateContactService = async (
 
   await contactRepository.save(newContactData);
 
-  const returnContact: TContactResponse =
-    responseContactSchema.parse(newContactData);
+  const returnContact: TContactResponse = contactSchema.parse(newContactData);
 
   return returnContact;
 };

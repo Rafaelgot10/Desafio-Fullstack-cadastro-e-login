@@ -2,32 +2,36 @@ import { Repository } from "typeorm";
 import { AppError } from "../error";
 import { AppDataSource } from "../data-source";
 import { NextFunction, Request, Response } from "express";
+import Contact from "../Entities/contacts.entities";
 import User from "../Entities/users.entities";
 
-const verifyEmailUser = async (
+const verifyPhoneNumberUser = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  const emailName: string = req.body.email;
+  const phoneNumber: number = req.body.phone;
 
-  if (!emailName) {
+  if (!phoneNumber) {
     return next();
   }
 
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
 
-  const email: User | null = await userRepository.findOne({
+  const phone: User | null = await userRepository.findOne({
     where: {
-      email: emailName,
+      phone: phoneNumber,
     },
   });
 
-  if (email) {
-    throw new AppError("Email already exists", 409);
+  console.log("body:", phoneNumber);
+  console.log("encontrado:", phone);
+
+  if (phone) {
+    throw new AppError("Phone number already exists", 409);
   } else {
     return next();
   }
 };
 
-export default verifyEmailUser;
+export default verifyPhoneNumberUser;

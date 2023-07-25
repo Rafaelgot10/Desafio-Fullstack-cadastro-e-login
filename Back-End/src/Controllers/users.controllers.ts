@@ -14,7 +14,7 @@ export const createUserController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const userData = req.body;
+  const userData: TUserRequest = req.body;
 
   const createdUser = await createUserService(userData);
 

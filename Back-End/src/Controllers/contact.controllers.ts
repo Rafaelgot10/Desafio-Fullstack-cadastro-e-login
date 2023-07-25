@@ -14,9 +14,10 @@ export const createContactController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const contactData = req.body;
+  const contactData: TContactRequest = req.body;
+  const userId: number = res.locals.sub;
 
-  const createdContact = await createContactService(contactData);
+  const createdContact = await createContactService(contactData, userId);
 
   return res.status(201).json(createdContact);
 };

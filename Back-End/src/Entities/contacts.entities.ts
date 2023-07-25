@@ -28,7 +28,7 @@ class Contact {
   @DeleteDateColumn({ nullable: true })
   deletedAt?: string | Date | null | undefined;
 
-  @ManyToOne(() => User, (user) => user.contact)
+  @ManyToOne(() => User, (user) => user.contacts)
   user: User;
 }
 

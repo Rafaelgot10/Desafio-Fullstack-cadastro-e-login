@@ -13,13 +13,17 @@ import {
 } from "../Controllers/contact.controllers";
 import veryfiToken from "../Middlewares/veryfiToken";
 import verifyIdContactParamn from "../Middlewares/verifyIdContactParamn.middleware";
-// import loginController from "../Controllers/login.controllers";
+import verifyEmailContact from "../Middlewares/veryfiEmailContact";
+import verifyPhoneNumberContact from "../Middlewares/veryfiPhoneNumberContact";
 
 const contactRouter = Router();
 
 contactRouter.post(
   "",
-  verifyBodyRequest(requestContactSchema),
+  veryfiToken,
+  verifyEmailContact,
+  verifyPhoneNumberContact,
+  // verifyBodyRequest(requestContactSchema),
   createContactController
 );
 
@@ -29,7 +33,6 @@ contactRouter.get(
   "/:id",
   verifyIdContactParamn,
   veryfiToken,
-  // verifyOwner,
   listContactbyIdController
 );
 
@@ -37,8 +40,9 @@ contactRouter.patch(
   "/:id",
   verifyIdContactParamn,
   veryfiToken,
+  verifyEmailContact,
+  verifyPhoneNumberContact,
   verifyBodyRequest(updateContactSchema),
-  // verifyOwner,
   updateContactController
 );
 
@@ -46,7 +50,6 @@ contactRouter.delete(
   "/:id",
   verifyIdContactParamn,
   veryfiToken,
-  // verifyOwner,
   deleteContactController
 );
 

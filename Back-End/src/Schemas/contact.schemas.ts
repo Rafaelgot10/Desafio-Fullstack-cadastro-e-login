@@ -4,7 +4,6 @@ export const contactSchema = z.object({
   id: z.number(),
   fullName: z.string(),
   email: z.string().email().max(45),
-  password: z.string().max(120),
   phone: z.number(),
   createdAt: z.string(),
 });
@@ -14,8 +13,6 @@ export const requestContactSchema = contactSchema.omit({
   createdAt: true,
 });
 
-export const responseContactSchema = contactSchema.omit({ password: true });
-
-export const responseContactsSchema = responseContactSchema.array();
+export const responseContactsSchema = contactSchema.array();
 
 export const updateContactSchema = requestContactSchema.partial();

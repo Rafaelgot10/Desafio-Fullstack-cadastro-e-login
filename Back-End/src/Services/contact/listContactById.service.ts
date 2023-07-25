@@ -2,7 +2,7 @@ import { Repository } from "typeorm";
 import { AppDataSource } from "../../data-source";
 import Contact from "../../Entities/contacts.entities";
 import { TContactResponse } from "../../Interfaces/contact.interfaces";
-import { responseContactSchema } from "../../Schemas/contact.schemas";
+import { contactSchema } from "../../Schemas/contact.schemas";
 
 const listContactByIdService = async (
   contactId: number
@@ -15,16 +15,12 @@ const listContactByIdService = async (
       id: contactId,
     },
 
-    // relations: {
-    //   contact: true,
-    // },
-
-    // relations: {
-    //   realEstate: true,
-    // },
+    relations: {
+      user: true,
+    },
   });
 
-  const returnContact: TContactResponse = responseContactSchema.parse(contact);
+  const returnContact: TContactResponse = contactSchema.parse(contact);
 
   return returnContact;
 };

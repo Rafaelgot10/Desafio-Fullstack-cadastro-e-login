@@ -15,12 +15,8 @@ const listUserByIdService = async (
     },
 
     relations: {
-      contact: true,
+      contacts: true,
     },
-
-    // relations: {
-    //   realEstate: true,
-    // },
   });
 
   const returnUser: TUserResponse = responseUserSchema.parse(user);
