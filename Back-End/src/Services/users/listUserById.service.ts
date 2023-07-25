@@ -14,6 +14,10 @@ const listUserByIdService = async (
       id: UserId,
     },
 
+    relations: {
+      contact: true,
+    },
+
     // relations: {
     //   realEstate: true,
     // },

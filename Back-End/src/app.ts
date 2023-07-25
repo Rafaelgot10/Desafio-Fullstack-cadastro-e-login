@@ -4,11 +4,7 @@ import express, { Application, json } from "express";
 import { handleErrors } from "./error";
 import usersRoutes from "./Routes/users.routes";
 import loginRouter from "./Routes/login.routes";
-
-// import loginRouter from "./routes/login.routes";
-// import categorieRouter from "./routes/categories.routes";
-// import realEstateRouter from "./routes/realEstate.routes";
-// import schedulesRouter from "./routes/schedules.routes";
+import contactRouter from "./Routes/contact.routes";
 
 const app: Application = express();
 app.use(json());
@@ -19,11 +15,7 @@ app.use("/users", usersRoutes);
 
 app.use("/login", loginRouter);
 
-// app.use("/categories", categorieRouter);
-
-// app.use("/realEstate", realEstateRouter);
-
-// app.use("/schedules", schedulesRouter);
+app.use("/contact", contactRouter);
 
 app.use(handleErrors);
 

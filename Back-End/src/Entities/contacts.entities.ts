@@ -1,6 +1,7 @@
 import {
   Column,
   CreateDateColumn,
+  DeleteDateColumn,
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
@@ -23,6 +24,9 @@ class Contact {
 
   @CreateDateColumn({ type: "date" })
   createdAt?: Date | string;
+
+  @DeleteDateColumn({ nullable: true })
+  deletedAt?: string | Date | null | undefined;
 
   @ManyToOne(() => User, (user) => user.contact)
   user: User;

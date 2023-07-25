@@ -4,7 +4,7 @@ import { TUserRequest, TUserResponse } from "../../Interfaces/users.interfaces";
 import User from "../../Entities/users.entities";
 import { responseUserSchema } from "../../Schemas/users.schemas";
 
-const updateUsersService = async (
+const updateUserService = async (
   userId: number,
   userData: TUserRequest
 ): Promise<TUserResponse> => {
@@ -26,4 +26,4 @@ const updateUsersService = async (
   return returnUser;
 };
 
-export default updateUsersService;
+export default updateUserService;

@@ -7,6 +7,7 @@ import {
   BeforeInsert,
   BeforeUpdate,
   UpdateDateColumn,
+  DeleteDateColumn,
 } from "typeorm";
 
 import { getRounds, hashSync } from "bcryptjs";
@@ -34,6 +35,9 @@ class User {
 
   @UpdateDateColumn({ type: "date" })
   updatedAt?: Date | string;
+
+  @DeleteDateColumn({ nullable: true })
+  deletedAt?: string | Date | null | undefined;
 
   @OneToMany(() => Contact, (contact) => contact.user)
   contact: Contact[];

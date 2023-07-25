@@ -6,9 +6,10 @@ import {
   TUsersResponse,
 } from "../Interfaces/users.interfaces";
 import listAllUsersService from "../Services/users/listUsers.service";
-import updateUsersService from "../Services/users/updateUsers.service";
 import deleteUserService from "../Services/users/deleteUsers.service";
 import listUserByIdService from "../Services/users/listUserById.service";
+import updateUserService from "../Services/users/updateUsers.service";
+
 export const createUserController = async (
   req: Request,
   res: Response
@@ -36,7 +37,7 @@ export const updateUserController = async (
   const userDatarequest: TUserRequest = req.body;
   console.log(userDatarequest);
 
-  const updatedUser: string | TUserResponse = await updateUsersService(
+  const updatedUser: string | TUserResponse = await updateUserService(
     userId,
     userDatarequest
   );
