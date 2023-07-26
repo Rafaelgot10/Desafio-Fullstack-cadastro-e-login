@@ -2,7 +2,6 @@ import { Repository } from "typeorm";
 import { AppError } from "../error";
 import { AppDataSource } from "../data-source";
 import { NextFunction, Request, Response } from "express";
-import Contact from "../Entities/contacts.entities";
 import User from "../Entities/users.entities";
 
 const verifyPhoneNumberUser = async (

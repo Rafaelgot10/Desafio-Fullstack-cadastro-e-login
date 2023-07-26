@@ -20,7 +20,7 @@ usersRoutes.post(
   "",
   verifyEmailUser,
   verifyPhoneNumberUser,
-  // verifyBodyRequest(requestUserSchema),
+  verifyBodyRequest(requestUserSchema),
   createUserController
 );
 

@@ -24,6 +24,4 @@ export const responseUserSchema = userSchema.extend({
 
 export const responseUsersSchema = responseUserSchema.array();
 
-type teste = z.infer<typeof responseUserSchema>;
-
 export const updateUserSchema = requestUserSchema.partial();

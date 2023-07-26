@@ -23,7 +23,7 @@ contactRouter.post(
   veryfiToken,
   verifyEmailContact,
   verifyPhoneNumberContact,
-  // verifyBodyRequest(requestContactSchema),
+  verifyBodyRequest(requestContactSchema),
   createContactController
 );
 
