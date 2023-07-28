@@ -36,7 +36,6 @@ export const updateUserController = async (
 ): Promise<Response> => {
   const userId: number = parseInt(req.params.id);
   const userDatarequest: TUserRequest = req.body;
-  console.log(userDatarequest);
 
   const updatedUser: string | TUser = await updateUserService(
     userId,

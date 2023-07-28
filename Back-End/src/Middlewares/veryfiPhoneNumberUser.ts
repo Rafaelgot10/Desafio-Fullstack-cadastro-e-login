@@ -23,9 +23,6 @@ const verifyPhoneNumberUser = async (
     },
   });
 
-  console.log("body:", phoneNumber);
-  console.log("encontrado:", phone);
-
   if (phone) {
     throw new AppError("Phone number already exists", 409);
   } else {

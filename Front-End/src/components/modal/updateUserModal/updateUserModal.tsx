@@ -42,7 +42,6 @@ export function UpdateUserModal({ setUpdateUserModal }: IProps) {
     if (!showPassword) {
       delete data.password;
     }
-    console.log(data);
 
     updateUser(data);
   };

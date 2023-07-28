@@ -36,7 +36,6 @@ export const updateContactController = async (
 ): Promise<Response> => {
   const contactId: number = parseInt(req.params.id);
   const contactDatarequest: TContactRequest = req.body;
-  console.log(contactDatarequest);
 
   const updatedContact: string | TContactResponse = await updateContactService(
     contactId,

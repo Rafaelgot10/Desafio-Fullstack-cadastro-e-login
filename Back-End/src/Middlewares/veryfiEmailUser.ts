@@ -23,9 +23,6 @@ const verifyEmailUser = async (
     },
   });
 
-  console.log("body:", emailName);
-  console.log("encontrado:", email);
-
   if (email) {
     throw new AppError("Email already exists", 409);
   } else {

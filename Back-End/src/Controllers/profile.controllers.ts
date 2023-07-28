@@ -25,7 +25,6 @@ export const updateProfileController = async (
 ): Promise<Response> => {
   const userId: number = res.locals.sub;
   const userDatarequest: TUserRequest = req.body;
-  console.log(userDatarequest);
 
   const updatedUser: string | TUser = await updateUserService(
     userId,

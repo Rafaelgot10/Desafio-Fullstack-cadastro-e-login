@@ -17,7 +17,7 @@ const veryfiToken = async (
     if (err) {
       throw new AppError(err.message, 401);
     }
-    // res.locals.admin = decoded.admin;
+
     res.locals.sub = decoded.sub;
   });
 

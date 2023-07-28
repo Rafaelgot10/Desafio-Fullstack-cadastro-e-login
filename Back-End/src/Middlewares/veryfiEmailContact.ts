@@ -31,8 +31,6 @@ const verifyEmailContact = async (
     },
   });
 
-  console.log(users);
-
   if (email) {
     throw new AppError("Email already exists", 409);
   } else {

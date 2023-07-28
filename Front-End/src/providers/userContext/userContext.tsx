@@ -31,7 +31,6 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       setLoading(true);
       const response = await api.post<TResponseLogin>("login", formData);
       localStorage.setItem("KNZ-HUB-Token", response.data.token);
-      // api.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
 
       navigate("/dash");
       toast.success(`Bem-vindo de volta !!`);

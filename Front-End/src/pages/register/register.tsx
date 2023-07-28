@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import { RegisteForm } from "../../components/Form/RegisterForm/registerForm";
 import { StyledRegisterForm, StyledRegisterPage } from "./style";
 import { useContext } from "react";
 import { UserContext } from "../../providers/userContext/userContext";
@@ -21,8 +20,6 @@ export function RegisterPage() {
   });
 
   const onSubmitFunction = (data: TUserRequest) => {
-    console.log(data);
-
     registerUser(data);
   };
 

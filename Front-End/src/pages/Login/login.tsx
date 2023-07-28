@@ -15,13 +15,6 @@ export function LoginPage() {
 
   let token = localStorage.getItem("KNZ-HUB-Token");
 
-  // useEffect(() => {
-  //   if (token != null) {
-  //     navigate("/dash");
-  //     toast.success("Você já esta logado em nosso sistema !!");
-  //   }
-  // }, []);
-
   const {
     register,
     handleSubmit,
@@ -33,8 +26,6 @@ export function LoginPage() {
   });
 
   const onSubmitFunction = (data: TLoginForm) => {
-    console.log(data);
-
     login(data);
   };
 
