@@ -13,6 +13,10 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+type responseError = {
+  message: string;
+};
+
 export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IDefaultProviderProps) => {
@@ -65,7 +69,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       toast.success(`Usuario ${formData.fullName} cadastrado com sucesso `);
       navigate("/login");
     } catch (error) {
-      if (axios.isAxiosError<string>(error)) {
+      if (axios.isAxiosError<responseError>(error)) {
         if (error.response?.data.message == "Phone number already exists") {
           toast.error("Numero de telefone já esta cadastrado em sua conta");
           console.log(error);
@@ -92,7 +96,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       getUserLoged();
       setUpdateUserModal(false);
     } catch (error) {
-      if (axios.isAxiosError<string>(error)) {
+      if (axios.isAxiosError<responseError>(error)) {
         if (error.response?.data.message == "Phone number already exists") {
           toast.error("Numero de telefone já esta cadastrado em sua conta");
           console.log(error);

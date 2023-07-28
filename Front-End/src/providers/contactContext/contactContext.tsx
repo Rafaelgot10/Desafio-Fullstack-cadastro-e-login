@@ -11,6 +11,10 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { UserContext } from "../userContext/userContext";
 
+type responseError = {
+  message: string;
+};
+
 export const ContactContext = createContext({} as IContactContext);
 
 export const ContactProvider = ({ children }: IDefaultProviderProps) => {
@@ -37,7 +41,7 @@ export const ContactProvider = ({ children }: IDefaultProviderProps) => {
       getUserLoged();
       setCreateContactModal(false);
     } catch (error) {
-      if (axios.isAxiosError<string>(error)) {
+      if (axios.isAxiosError<responseError>(error)) {
         if (error.response?.data.message == "Phone number already exists") {
           toast.error("Numero de telefone já esta cadastrado em sua conta");
           console.log(error);
@@ -64,7 +68,7 @@ export const ContactProvider = ({ children }: IDefaultProviderProps) => {
       toast.success(`Contato ${formData.fullName} atualizado com sucesso `);
       setUpdateContactModal(false);
     } catch (error) {
-      if (axios.isAxiosError<string>(error)) {
+      if (axios.isAxiosError<responseError>(error)) {
         if (error.response?.data.message == "Phone number already exists") {
           toast.error("Numero de telefone já esta cadastrado em sua conta");
           console.log(error);
