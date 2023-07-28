@@ -41,7 +41,6 @@ export type IUserContext = {
   login: (formData: TLoginForm) => Promise<void>;
   logout: () => void;
 
-  // Requests
   registerUser: (formData: TUserRequest) => Promise<void>;
   updateUser: (formData: TUserUpdateRequest) => Promise<void>;
   deleteUser: (id: number | undefined) => Promise<void>;

@@ -17,9 +17,13 @@ export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const [loading, setLoading] = useState(true);
+
   const [updateUserModal, setUpdateUserModal] = useState(false);
+
   const [deleteUserModal, setDeleteUserModal] = useState(false);
+
   const [password, setPassword] = useState<string>();
+
   const [user, setUser] = useState<TUserResponse>();
 
   const navigate = useNavigate();
@@ -55,8 +59,6 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     navigate("/login");
   }
 
-  // Requests
-
   async function registerUser(formData: TUserRequest) {
     try {
       const response = await api.post<TUserResponse>("users", formData);
@@ -64,9 +66,11 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       navigate("/login");
     } catch (error) {
       if (axios.isAxiosError<string>(error)) {
-        if (error.response?.data == "Email already exists") {
-          toast.error("Email já cadastrado, insira outro email");
+        if (error.response?.data.message == "Phone number already exists") {
+          toast.error("Numero de telefone já esta cadastrado em sua conta");
           console.log(error);
+        } else if (error.response?.data.message == "Email already exists") {
+          toast.error("Email já cadastrado em sua conta");
         } else {
           console.log(error);
         }
@@ -88,7 +92,16 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       getUserLoged();
       setUpdateUserModal(false);
     } catch (error) {
-      console.log(error);
+      if (axios.isAxiosError<string>(error)) {
+        if (error.response?.data.message == "Phone number already exists") {
+          toast.error("Numero de telefone já esta cadastrado em sua conta");
+          console.log(error);
+        } else if (error.response?.data.message == "Email already exists") {
+          toast.error("Email já cadastrado em sua conta");
+        } else {
+          console.log(error);
+        }
+      }
     } finally {
       setLoading(false);
     }

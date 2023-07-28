@@ -26,8 +26,6 @@ export const ContactProvider = ({ children }: IDefaultProviderProps) => {
 
   let token = localStorage.getItem("KNZ-HUB-Token");
 
-  // Requests
-
   async function createContact(formData: TContactRequest) {
     try {
       const response = await api.post<TContact>("contact", formData, {

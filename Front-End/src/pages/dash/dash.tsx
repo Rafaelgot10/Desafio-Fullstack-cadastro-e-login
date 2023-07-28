@@ -5,9 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { SiAddthis } from "react-icons/si";
 import { toast } from "react-toastify";
 import { Header } from "../../components/header/header";
-import { api } from "../../services/api";
-import { TUserResponse } from "../../providers/userContext/@Types";
-import axios from "axios";
 import { ContactContext } from "../../providers/contactContext/contactContext";
 import { TContact } from "../../providers/contactContext/@Types";
 import { CreateContactModal } from "../../components/modal/CreateContactModal/createContactModal";
@@ -19,9 +16,7 @@ import { DeleteContactModal } from "../../components/modal/deleteContactModal/de
 export function DashPage() {
   const {
     user,
-    setUser,
     loading,
-    setLoading,
     getUserLoged,
     deleteUserModal,
     setDeleteUserModal,
@@ -35,9 +30,6 @@ export function DashPage() {
     updateContactModal,
     setUpdateContactModal,
     setContact,
-    deleteContact,
-    contact,
-    updateContact,
     deleteContactModal,
     setDeleteContactModal,
   } = useContext(ContactContext);
@@ -48,7 +40,7 @@ export function DashPage() {
   useEffect(() => {
     if (!token) {
       navigate("/login");
-      toast.error("Você deve estar logado para acessar essa página !!");
+      toast.success("Você deve estar logado para acessar essa página !!");
     } else {
       getUserLoged();
     }

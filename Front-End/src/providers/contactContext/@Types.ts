@@ -28,7 +28,6 @@ export type IContactContext = {
   deleteContactModal: boolean;
   setDeleteContactModal: React.Dispatch<React.SetStateAction<boolean>>;
 
-  // Requests
   createContact: (formData: TContactRequest) => Promise<void>;
   updateContact: (
     id: number | undefined,

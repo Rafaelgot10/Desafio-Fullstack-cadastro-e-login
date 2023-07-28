@@ -9,11 +9,20 @@ import { TLoginForm } from "../../providers/userContext/@Types";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export function LoginPage() {
-  const { login } = useContext(UserContext);
+  const { login, getUserLoged } = useContext(UserContext);
 
   const navigate = useNavigate();
 
   let token = localStorage.getItem("KNZ-HUB-Token");
+
+  useEffect(() => {
+    if (token) {
+      navigate("/dash");
+      toast.error("Você já esta logado em nosso sistema !!");
+    } else {
+      getUserLoged();
+    }
+  }, []);
 
   const {
     register,
