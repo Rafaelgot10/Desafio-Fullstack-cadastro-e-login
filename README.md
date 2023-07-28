@@ -47,15 +47,12 @@ Manipulando o arquivo .env
 - ATENÇÃO: Para que o servidor funcione corretamente as credenciais do arquivo .env devem estar exatamente iguais as credenciais do seu banco de dados PostegresSQL
 ```
 
-
 Instalando as dependências necessárias para executar o servidor local 
 
 ```
 - Na raiz do projeto abra o terminal e mude para a pasta de Back - End com o comando: cd Back-End
 - Em seguida instale as dependências do servidor com o comando: npm install
 ```
-
-
 
 Executando as migrações
 
@@ -64,18 +61,12 @@ Executando as migrações
 - Execute as migrações com o comando: npm run typeorm migration:run -- -d src/data-source
 ```
 
-
-
-
-
 Executando o servidor localmente 
 
 ```
 - Na raiz do projeto abra o terminal e mude para a pasta de Back - End com o comando: cd Back-End
 - Execute o servidor localmente com o comando: npm run dev 
 ```
-
-
 
 Instalando as dependências necessárias para executar a aplicação localmente 
 
@@ -84,12 +75,12 @@ Instalando as dependências necessárias para executar a aplicação localmente
 - Em seguida instale as dependências do servidor com o comando: npm install
 ```
 
-
 Executando a aplicação localmente 
 
 ```
 - Na raiz do projeto abra o terminal e mude para a pasta de Front - End com o comando: cd Front-End
-- Execute o servidor localmente com o comando: npm run dev 
+- Execute o servidor localmente com o comando: npm run dev
+- Abra o navegador de sua preferência e acesse o endereço "http://localhost:5173/" para utilizar a aplicação normalmente
 ```
 
 ## 🛠️ Construído com
@@ -102,51 +93,9 @@ Ferramentas e tecnologias usadas na criação do projeto
 * [Insomnia](https://insomnia.rest) - Software para debug de requisições HTTP
 * [VScode](https://code.visualstudio.com) - Editor de texto (IDE)
 
-
-
 ## ✒️ Autor
-
-
 
 *  [Rafael Rocha](https://github.com/Rafaelgot10)
 
-  
 Se você tiver alguma dúvida, sugestão ou feedback sobre a API,
 sinta-se à vontade para entrar em contato com o desenvolvedor mencionado acima.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
