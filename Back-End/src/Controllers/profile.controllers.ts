@@ -1,9 +1,5 @@
 import { Request, Response } from "express";
-import {
-  TUser,
-  TUserRequest,
-  TUserResponse,
-} from "../Interfaces/users.interfaces";
+import { TUser, TUserRequest } from "../Interfaces/users.interfaces";
 import listUserByIdService from "../Services/users/listUserById.service";
 import deleteUserService from "../Services/users/deleteUsers.service";
 import updateUserService from "../Services/users/updateUsers.service";

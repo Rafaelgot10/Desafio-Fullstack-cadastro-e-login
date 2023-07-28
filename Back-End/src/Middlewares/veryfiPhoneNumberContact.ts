@@ -2,33 +2,35 @@ import { Repository } from "typeorm";
 import { AppError } from "../error";
 import { AppDataSource } from "../data-source";
 import { NextFunction, Request, Response } from "express";
-import Contact from "../Entities/contacts.entities";
+import User from "../Entities/users.entities";
 
 const verifyPhoneNumberContact = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  const phoneNumber: string = req.body.phone;
+  let phoneNumber: string = req.body.phone;
 
-  if (!phoneNumber) {
-    return next();
-  }
+  const userId: number = res.locals.sub;
 
-  const contactRepository: Repository<Contact> =
-    AppDataSource.getRepository(Contact);
+  const userRepository: Repository<User> = AppDataSource.getRepository(User);
 
-  const phone: Contact | null = await contactRepository.findOne({
+  const user: User | null = await userRepository.findOne({
     where: {
-      phone: phoneNumber,
+      id: userId,
+    },
+
+    relations: {
+      contacts: true,
     },
   });
 
-  if (phone) {
-    throw new AppError("Phone number already exists", 409);
-  } else {
-    return next();
-  }
+  user?.contacts?.map((contact) => {
+    if ((phoneNumber = contact.phone)) {
+      throw new AppError("Phone number already exists", 409);
+    }
+  });
+  return next();
 };
 
 export default verifyPhoneNumberContact;

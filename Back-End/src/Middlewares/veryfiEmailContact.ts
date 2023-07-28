@@ -2,7 +2,6 @@ import { Repository } from "typeorm";
 import { AppError } from "../error";
 import { AppDataSource } from "../data-source";
 import { NextFunction, Request, Response } from "express";
-import Contact from "../Entities/contacts.entities";
 import User from "../Entities/users.entities";
 
 const verifyEmailContact = async (
@@ -10,32 +9,31 @@ const verifyEmailContact = async (
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  const emailName: string = req.body.email;
+  let emailName: string = req.body.email;
 
-  if (!emailName) {
-    return next();
-  }
-
-  const contactRepository: Repository<Contact> =
-    AppDataSource.getRepository(Contact);
+  const userId: number = res.locals.sub;
 
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
 
-  const contatos: Contact[] = await contactRepository.find();
-
-  const users: User[] = await userRepository.find();
-
-  const email: Contact | null = await contactRepository.findOne({
+  const user: User | null = await userRepository.findOne({
     where: {
-      email: emailName,
+      id: userId,
+    },
+
+    relations: {
+      contacts: true,
     },
   });
 
-  if (email) {
-    throw new AppError("Email already exists", 409);
-  } else {
-    return next();
-  }
+  console.log(user);
+
+  user?.contacts?.map((contact) => {
+    if ((emailName = contact.email)) {
+      throw new AppError("Email already exists", 409);
+    }
+  });
+
+  return next();
 };
 
 export default verifyEmailContact;

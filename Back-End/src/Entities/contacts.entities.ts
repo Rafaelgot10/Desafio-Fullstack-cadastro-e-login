@@ -15,10 +15,10 @@ class Contact {
   @Column({ type: "varchar", length: 45 })
   fullName: string;
 
-  @Column({ type: "varchar", length: 45, unique: true })
+  @Column({ type: "varchar", length: 45 })
   email: string;
 
-  @Column({ type: "varchar", unique: true })
+  @Column({ type: "varchar" })
   phone: string;
 
   @CreateDateColumn({ type: "date" })
