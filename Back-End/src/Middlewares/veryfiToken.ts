@@ -8,7 +8,6 @@ const veryfiToken = async (
   next: NextFunction
 ): Promise<Response | void> => {
   let token = req.headers.authorization;
-
   if (!token) {
     throw new AppError("Missing bearer token", 401);
   }

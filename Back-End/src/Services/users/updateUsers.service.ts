@@ -1,13 +1,17 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../data-source";
-import { TUserRequest, TUserResponse } from "../../Interfaces/users.interfaces";
+import {
+  TUser,
+  TUserRequest,
+  TUserResponse,
+} from "../../Interfaces/users.interfaces";
 import User from "../../Entities/users.entities";
-import { responseUserSchema } from "../../Schemas/users.schemas";
+import { userSchema } from "../../Schemas/users.schemas";
 
 const updateUserService = async (
   userId: number,
   userData: TUserRequest
-): Promise<TUserResponse> => {
+): Promise<TUser> => {
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
 
   const oldUserData: User | null = await userRepository.findOneBy({
@@ -21,7 +25,7 @@ const updateUserService = async (
 
   await userRepository.save(newUserData);
 
-  const returnUser: TUserResponse = responseUserSchema.parse(newUserData);
+  const returnUser: TUser = userSchema.parse(newUserData);
 
   return returnUser;
 };

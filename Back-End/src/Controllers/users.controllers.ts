@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import createUserService from "../Services/users/createUsers.service";
 import {
+  TUser,
   TUserRequest,
   TUserResponse,
   TUsersResponse,
@@ -37,7 +38,7 @@ export const updateUserController = async (
   const userDatarequest: TUserRequest = req.body;
   console.log(userDatarequest);
 
-  const updatedUser: string | TUserResponse = await updateUserService(
+  const updatedUser: string | TUser = await updateUserService(
     userId,
     userDatarequest
   );

@@ -6,8 +6,6 @@ import {
   OneToMany,
   BeforeInsert,
   BeforeUpdate,
-  UpdateDateColumn,
-  DeleteDateColumn,
 } from "typeorm";
 
 import { getRounds, hashSync } from "bcryptjs";
@@ -18,26 +16,20 @@ class User {
   @PrimaryGeneratedColumn("increment")
   id: number;
 
-  @Column({ type: "varchar", length: 45 })
+  @Column({ type: "varchar", length: 50 })
   fullName: string;
 
-  @Column({ type: "varchar", length: 45, unique: true })
+  @Column({ type: "varchar", length: 50, unique: true })
   email: string;
 
-  @Column({ type: "int", unique: true })
-  phone: number;
+  @Column({ type: "varchar", unique: true })
+  phone: string;
 
   @Column({ type: "varchar", length: 120 })
   password: string;
 
   @CreateDateColumn({ type: "date" })
   createdAt?: Date | string;
-
-  @UpdateDateColumn({ type: "date" })
-  updatedAt?: Date | string;
-
-  @DeleteDateColumn({ nullable: true })
-  deletedAt?: string | Date | null | undefined;
 
   @OneToMany(() => Contact, (contact) => contact.user, { nullable: true })
   contacts: Contact[] | null | undefined;

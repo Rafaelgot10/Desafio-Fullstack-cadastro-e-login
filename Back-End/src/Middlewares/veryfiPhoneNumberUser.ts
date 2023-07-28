@@ -9,7 +9,7 @@ const verifyPhoneNumberUser = async (
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  const phoneNumber: number = req.body.phone;
+  const phoneNumber: string = req.body.phone;
 
   if (!phoneNumber) {
     return next();

@@ -1,7 +1,6 @@
 import {
   Column,
   CreateDateColumn,
-  DeleteDateColumn,
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
@@ -19,16 +18,13 @@ class Contact {
   @Column({ type: "varchar", length: 45, unique: true })
   email: string;
 
-  @Column({ type: "int", unique: true })
-  phone: number;
+  @Column({ type: "varchar", unique: true })
+  phone: string;
 
   @CreateDateColumn({ type: "date" })
   createdAt?: Date | string;
 
-  @DeleteDateColumn({ nullable: true })
-  deletedAt?: string | Date | null | undefined;
-
-  @ManyToOne(() => User, (user) => user.contacts)
+  @ManyToOne(() => User, (user) => user.contacts, { onDelete: "CASCADE" })
   user: User;
 }
 
