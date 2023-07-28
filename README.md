@@ -31,7 +31,7 @@ Salvar uma copia do projeto em sua máquina:
 
 ```
 - Abra o diretorio onde será salvo o projeto e abra o terminal nesse diretório
-- Rode o comando git clone (chave SSH copiada)
+- Rode o comando: git clone (chave SSH copiada)
 - Após isso você terá uma copia totalmente editavel de todo o projeto em sua maquina
 ```
 
@@ -40,11 +40,11 @@ Salvar uma copia do projeto em sua máquina:
 Manipulando o arquivo .env
 
 ```
-- Na raiz do projeto abra o terminal e mude para a pasta de Back - End com o comando: cd Back-End
-- Crie um arquivo chamado .env e dentro dele crie as variáveis de ambiente seguindo o padrão do arquivo .env.example
+- Crie um arquivo chamado .env na raiz da pasta "Back-End"
+- Dentro dele crie as variáveis de ambiente seguindo o padrão do arquivo .env.example
 - Configure suas variáveis de ambiente com suas credenciais do PostgresSQL e um novo banco de dados para estar utilizando no projeto.
 
-- ATENÇÃO: Para que o servidor funcione corretamente as credenciais do arquivo .env devem estar exatamente iguais as credenciais do seu banco de dados PostegresSQL
+- ATENÇÃO: Para que o servidor funcione corretamente as credenciais do arquivo .env devem estar exatamente iguais as credenciais do seu banco de dados PostegresSQL e não se esqueça de salvar o arquivo 
 ```
 
 Instalando as dependências necessárias para executar o servidor local 
@@ -57,29 +57,26 @@ Instalando as dependências necessárias para executar o servidor local
 Executando as migrações
 
 ```
-- Na raiz do projeto abra o terminal e mude para a pasta de Back - End com o comando: cd Back-End
-- Execute as migrações com o comando: npm run typeorm migration:run -- -d src/data-source
+- Ainda com o terminal aberto na pasta Back-End, execute as migrações com o comando: npm run typeorm migration:run -- -d src/data-source
 ```
 
 Executando o servidor localmente 
 
 ```
-- Na raiz do projeto abra o terminal e mude para a pasta de Back - End com o comando: cd Back-End
-- Execute o servidor localmente com o comando: npm run dev 
+- Ainda com o terminal aberto na pasta Back-End, execute o servidor localmente com o comando: npm run dev 
 ```
 
 Instalando as dependências necessárias para executar a aplicação localmente 
 
 ```
-- Na raiz do projeto abra o terminal e mude para a pasta de Front - End com o comando: cd Front-End
+- Na raiz do projeto abra um novo terminal e mude para a pasta de Front - End com o comando: cd Front-End
 - Em seguida instale as dependências do servidor com o comando: npm install
 ```
 
 Executando a aplicação localmente 
 
 ```
-- Na raiz do projeto abra o terminal e mude para a pasta de Front - End com o comando: cd Front-End
-- Execute o servidor localmente com o comando: npm run dev
+- Ainda com o terminal aberto na pasta Front-End, execute a aplicação localmente com o comando: npm run dev
 - Abra o navegador de sua preferência e acesse o endereço "http://localhost:5173/" para utilizar a aplicação normalmente
 ```
 
@@ -87,11 +84,13 @@ Executando a aplicação localmente
 
 Ferramentas e tecnologias usadas na criação do projeto
 
-* [React](https://react.dev) - O framework web usado
+* [Node](https://nodejs.org/pt-br) - O framework Back-end 
+* [React](https://react.dev) - O framework Front-end 
 * [Typescript](https://www.typescriptlang.org) - Linguagem de programação
 * [PostgreSQL](https://www.postgresql.org) - Gerenciador de banco de dados
 * [Insomnia](https://insomnia.rest) - Software para debug de requisições HTTP
 * [VScode](https://code.visualstudio.com) - Editor de texto (IDE)
+* [Dbeaver](https://dbeaver.io) - Vizualizador de banco de dados 
 
 ## ✒️ Autor
 
