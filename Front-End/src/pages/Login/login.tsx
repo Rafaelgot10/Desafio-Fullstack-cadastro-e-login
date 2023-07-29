@@ -13,7 +13,7 @@ export function LoginPage() {
 
   const navigate = useNavigate();
 
-  let token = localStorage.getItem("KNZ-HUB-Token");
+  let token = localStorage.getItem("KNZ-Schedule-Token");
 
   useEffect(() => {
     if (token) {

@@ -32,13 +32,13 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
 
   const navigate = useNavigate();
 
-  let token = localStorage.getItem("KNZ-HUB-Token");
+  let token = localStorage.getItem("KNZ-Schedule-Token");
 
   async function login(formData: TLoginForm) {
     try {
       setLoading(true);
       const response = await api.post<TResponseLogin>("login", formData);
-      localStorage.setItem("KNZ-HUB-Token", response.data.token);
+      localStorage.setItem("KNZ-Schedule-Token", response.data.token);
 
       navigate("/dash");
       toast.success(`Bem-vindo de volta !!`);
@@ -58,7 +58,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   }
 
   function logout() {
-    localStorage.removeItem("KNZ-HUB-Token");
+    localStorage.removeItem("KNZ-Schedule-Token");
     setPassword("");
     navigate("/login");
   }

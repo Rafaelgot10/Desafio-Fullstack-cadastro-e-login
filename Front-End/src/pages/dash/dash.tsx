@@ -34,7 +34,7 @@ export function DashPage() {
     setDeleteContactModal,
   } = useContext(ContactContext);
 
-  let token = localStorage.getItem("KNZ-HUB-Token");
+  let token = localStorage.getItem("KNZ-Schedule-Token");
   const navigate = useNavigate();
 
   useEffect(() => {

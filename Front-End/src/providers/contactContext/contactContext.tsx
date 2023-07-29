@@ -28,7 +28,7 @@ export const ContactProvider = ({ children }: IDefaultProviderProps) => {
 
   const { getUserLoged } = useContext(UserContext);
 
-  let token = localStorage.getItem("KNZ-HUB-Token");
+  let token = localStorage.getItem("KNZ-Schedule-Token");
 
   async function createContact(formData: TContactRequest) {
     try {
