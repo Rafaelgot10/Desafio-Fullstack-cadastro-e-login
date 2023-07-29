@@ -11,14 +11,17 @@ export const StyledNotFoundPage = styled.div`
     font-size: 5rem;
     margin-top: 5rem;
     color: var(--grey-1);
+    text-align: center;
   }
 
   span {
     color: var(--grey-2);
+    text-align: center;
   }
 
   p {
     color: var(--grey-2);
+    text-align: center;
   }
 
   a {
