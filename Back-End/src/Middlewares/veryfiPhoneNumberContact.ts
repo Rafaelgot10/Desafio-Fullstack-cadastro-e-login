@@ -9,7 +9,7 @@ const verifyPhoneNumberContact = async (
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  let phoneNumber: string = req.body.phone;
+  const phoneNumber: string = req.body.phone;
 
   const userId: number = res.locals.sub;
 
@@ -26,7 +26,7 @@ const verifyPhoneNumberContact = async (
   });
 
   user?.contacts?.map((contact) => {
-    if ((phoneNumber = contact.phone)) {
+    if (phoneNumber == contact.phone) {
       throw new AppError("Phone number already exists", 409);
     }
   });

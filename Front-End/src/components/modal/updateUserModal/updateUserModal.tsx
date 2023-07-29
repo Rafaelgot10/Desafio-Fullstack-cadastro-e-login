@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../providers/userContext/userContext";
 import { useForm } from "react-hook-form";
 import { TUserUpdateRequest } from "../../../providers/userContext/@Types";
@@ -13,7 +13,11 @@ type IProps = {
 export function UpdateUserModal({ setUpdateUserModal }: IProps) {
   const { user, updateUser, password } = useContext(UserContext);
 
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(true);
+
+  useEffect(() => {
+    setShowPassword(false);
+  }, []);
 
   const {
     register,

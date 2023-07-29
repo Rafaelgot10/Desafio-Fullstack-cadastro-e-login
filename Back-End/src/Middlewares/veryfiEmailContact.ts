@@ -9,7 +9,7 @@ const verifyEmailContact = async (
   res: Response,
   next: NextFunction
 ): Promise<Response | void> => {
-  let emailName: string = req.body.email;
+  const emailName: string = req.body.email;
 
   const userId: number = res.locals.sub;
 
@@ -25,10 +25,8 @@ const verifyEmailContact = async (
     },
   });
 
-  console.log(user);
-
   user?.contacts?.map((contact) => {
-    if ((emailName = contact.email)) {
+    if (emailName == contact.email) {
       throw new AppError("Email already exists", 409);
     }
   });

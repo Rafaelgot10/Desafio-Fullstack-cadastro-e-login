@@ -75,6 +75,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
           console.log(error);
         } else if (error.response?.data.message == "Email already exists") {
           toast.error("Email já cadastrado em sua conta");
+          console.log(error);
         } else {
           console.log(error);
         }
@@ -102,6 +103,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
           console.log(error);
         } else if (error.response?.data.message == "Email already exists") {
           toast.error("Email já cadastrado em sua conta");
+          console.log(error);
         } else {
           console.log(error);
         }

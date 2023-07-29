@@ -134,18 +134,6 @@ export const StyledHeader = styled.header<IHeaderProps>`
     display: none;
   }
 
-  /* button {
-    background-color: var(--grey-1);
-  } */
-
-  /* button:hover {
-    background-color: var(--grey-2);
-  } */
-
-  /* .navDown > ul > li > button {
-    width: 150px;
-  } */
-
   @media (min-width: 770px) {
     .menuIcon {
       display: none;

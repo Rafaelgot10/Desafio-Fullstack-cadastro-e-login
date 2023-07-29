@@ -1,10 +1,6 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../data-source";
-import {
-  TUser,
-  TUserRequest,
-  TUserResponse,
-} from "../../Interfaces/users.interfaces";
+import { TUser, TUserRequest } from "../../Interfaces/users.interfaces";
 import User from "../../Entities/users.entities";
 import { userSchema } from "../../Schemas/users.schemas";
 

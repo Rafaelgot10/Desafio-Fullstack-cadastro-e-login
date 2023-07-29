@@ -19,7 +19,6 @@ export function LoginPage() {
     if (token) {
       navigate("/dash");
       toast.error("Você já esta logado em nosso sistema !!");
-    } else {
       getUserLoged();
     }
   }, []);
