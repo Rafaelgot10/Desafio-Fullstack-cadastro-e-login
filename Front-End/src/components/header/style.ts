@@ -59,16 +59,6 @@ export const StyledHeader = styled.header<IHeaderProps>`
     border-radius: 5px;
   }
 
-  .navDown > ul > li > a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: 700;
-    color: var(--grey-1);
-    padding: 10px 0;
-    width: 200px;
-  }
-
   .navDown > ul > li > button {
     display: flex;
     flex-direction: column;
@@ -82,19 +72,14 @@ export const StyledHeader = styled.header<IHeaderProps>`
     width: 200px;
   }
 
+  .navDown > ul > li > button:hover {
+    color: var(--grey-0);
+  }
+
   .navUp > ul > li {
     text-align: center;
     background-color: var(--grey-3);
     border-radius: 5px;
-  }
-
-  .navUp > ul > li > a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: 700;
-    color: var(--grey-1);
-    padding: 10px 20px;
   }
 
   .navUp > ul > li > button {
@@ -108,6 +93,10 @@ export const StyledHeader = styled.header<IHeaderProps>`
     color: var(--grey-1);
     padding: 10px 0;
     width: 150px;
+  }
+
+  .navUp > ul > li > button:hover {
+    color: var(--grey-0);
   }
 
   .navUp {

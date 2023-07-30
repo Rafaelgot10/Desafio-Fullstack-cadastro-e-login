@@ -54,15 +54,16 @@ export const StyledDash = styled.div`
     width: 100%;
     margin-bottom: 2rem;
   }
+
   .contacts > div > h2 {
     font-size: 2.5rem;
-    color: var(--grey-2);
+    color: var(--grey-1);
   }
 
   .contacts > div > svg {
     height: 30px;
     width: 30px;
-    color: var(--grey-2);
+    color: var(--negative);
   }
 
   .contactsList {
@@ -83,6 +84,7 @@ export const StyledDash = styled.div`
     border-radius: 5px;
     gap: 5px;
     width: 100%;
+    color: var(--grey-0);
   }
 
   .description {
@@ -102,12 +104,14 @@ export const StyledDash = styled.div`
     background-color: var(--grey-1);
     padding: 0.5rem;
     border-radius: 5px;
+    color: var();
   }
 
   .deleteContact {
     background-color: var(--color-primary-negative);
     padding: 0.5rem;
     border-radius: 5px;
+    color: var(--grey-0);
   }
 
   .updateContact:hover {

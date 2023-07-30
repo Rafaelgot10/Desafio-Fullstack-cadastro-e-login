@@ -35,10 +35,7 @@ export function Header() {
             <button onClick={() => handleUpdateUser()}> Editar Perfil </button>
           </li>
           <li>
-            <Link onClick={() => logout()} to="/login">
-              {" "}
-              Sair{" "}
-            </Link>
+            <button onClick={() => logout()}> Sair </button>
           </li>
         </ul>
 
@@ -55,10 +52,7 @@ export function Header() {
             <button onClick={() => handleUpdateUser()}> Editar Perfil </button>
           </li>
           <li>
-            <Link onClick={() => logout()} to="/login">
-              {" "}
-              Sair{" "}
-            </Link>
+            <button onClick={() => logout()}> Sair </button>
           </li>
         </ul>
       </div>
